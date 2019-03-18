@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    {% for post in post_list %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            {% comment %} <h1><a href="/post/{{ post.pk }}/">{{ post.title }}</a></h1> {% endcomment %}
+            <h1><a href="{% url "post_detail" post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block second %}
+    <h1>로그인 페이지</h1>
+{% endblock %}
